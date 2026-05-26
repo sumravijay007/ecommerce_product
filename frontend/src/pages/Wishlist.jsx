@@ -58,7 +58,7 @@ function Wishlist() {
                                 <Link to={`/product/${item._id}`} className="product-link">
                                     <div className="product-image-wrapper">
                                         <img
-                                            src={`http://localhost:5000/${item.images[0]}`}
+                                            src={`https://ecommerce-product-yww7.onrender.com/${item.images[0]}`}
                                             alt={item.name}
                                             className="product-image"
                                         />
@@ -68,7 +68,7 @@ function Wishlist() {
                                     </div>
                                     <div className="product-details">
                                         <h3 className="product-title">{truncateText(item.name, 50)}</h3>
-                                        
+
                                         <div className="product-rating">
                                             <span className="rating-badge">
                                                 4.5 ★
@@ -124,7 +124,7 @@ function Wishlist() {
                                             </>
                                         )}
                                     </button>
-                                    
+
                                     <button
                                         className="remove-btn"
                                         onClick={() => removeFromWishlist(item._id)}

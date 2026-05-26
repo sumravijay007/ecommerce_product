@@ -11,7 +11,7 @@ function Cart() {
         increaseQty,
         decreaseQty
     } = useContext(CartContext);
-    
+
     const { addToWishlist } = useContext(WishlistContext);
     const [checkoutLoading, setCheckoutLoading] = useState(false);
 
@@ -20,7 +20,7 @@ function Cart() {
         (acc, item) => acc + item.price * item.quantity,
         0
     );
-    
+
     const shipping = subtotal > 500 ? 0 : 40;
     const tax = subtotal * 0.05; // 5% tax
     const total = subtotal + shipping + tax;
@@ -81,16 +81,16 @@ function Cart() {
                         <div className="cart-item" key={item._id}>
                             <div className="cart-item-image">
                                 <img
-                                    src={item.images?.[0] ? `http://localhost:5000/${item.images[0]}` : '/placeholder.png'}
+                                    src={item.images?.[0] ? `https://ecommerce-product-yww7.onrender.com/${item.images[0]}` : '/placeholder.png'}
                                     alt={item.name}
                                 />
                             </div>
-                            
+
                             <div className="cart-item-details">
                                 <Link to={`/product/${item._id}`} className="cart-item-title">
                                     {item.name}
                                 </Link>
-                                
+
                                 <div className="cart-item-meta">
                                     {item.brand && (
                                         <span className="cart-item-brand">Brand: {item.brand}</span>
@@ -138,18 +138,18 @@ function Cart() {
                                             +
                                         </button>
                                     </div>
-                                    
+
                                     <div className="action-buttons">
                                         <button
                                             className="move-to-wishlist-btn"
                                             onClick={() => moveToWishlist(item)}
                                         >
                                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
                                             </svg>
                                             Move to Wishlist
                                         </button>
-                                        
+
                                         <button
                                             className="remove-item-btn"
                                             onClick={() => removeProduct(item._id)}
@@ -197,7 +197,7 @@ function Cart() {
                 {/* Order Summary Section */}
                 <div className="order-summary">
                     <h2>Order Summary</h2>
-                    
+
                     <div className="summary-details">
                         <div className="summary-row">
                             <span>Subtotal</span>
@@ -229,7 +229,7 @@ function Cart() {
                         </div>
                     </div>
 
-                    <button 
+                    <button
                         className="checkout-btn"
                         onClick={handleCheckout}
                         disabled={checkoutLoading}

@@ -19,7 +19,7 @@ function Home() {
     useEffect(() => {
         setLoading(true);
         axios
-            .get(`http://localhost:5000/api/products?search=${search}`)
+            .get(`https://ecommerce-product-yww7.onrender.com/api/products?search=${search}`)
             .then((res) => {
                 setProducts(res.data);
                 setLoading(false);
@@ -39,7 +39,7 @@ function Home() {
     // ================= RETURN UI =================
     return (
         <div className="home-container">
-          
+
 
             {/* Main Content */}
             <main className="main-content">
@@ -66,7 +66,7 @@ function Home() {
                                         <Link to={`/product/${item._id}`} className="product-link">
                                             <div className="product-image-wrapper">
                                                 <img
-                                                    src={`http://localhost:5000/${item.images[0]}`}
+                                                    src={`https://ecommerce-product-yww7.onrender.com/${item.images[0]}`}
                                                     alt={item.name}
                                                     className="product-image"
                                                 />

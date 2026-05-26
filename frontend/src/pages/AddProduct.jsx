@@ -35,22 +35,22 @@ function AddProduct() {
     // ================= IMAGE CHANGE =================
     const handleImageChange = (e) => {
         const files = Array.from(e.target.files);
-        
+
         // Validate file sizes and types
         const validFiles = files.filter(file => {
             const isValidType = file.type.startsWith('image/');
             const isValidSize = file.size <= 5 * 1024 * 1024; // 5MB limit
-            
+
             if (!isValidType) {
                 setMessage("Only image files are allowed", "error");
             }
             if (!isValidSize) {
                 setMessage("Image size should be less than 5MB", "error");
             }
-            
+
             return isValidType && isValidSize;
         });
-        
+
         setImages(validFiles);
     };
 
@@ -62,7 +62,7 @@ function AddProduct() {
     // ================= SUBMIT =================
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
+
         // Validation
         if (images.length === 0) {
             setMessage("Please select at least one product image", "error");
@@ -79,7 +79,7 @@ function AddProduct() {
             formData.append("category", category);
             formData.append("description", description);
             formData.append("stock", stock);
-            
+
             if (originalPrice) formData.append("originalPrice", originalPrice);
             if (discount) formData.append("discount", discount);
             if (brand) formData.append("brand", brand);
@@ -89,7 +89,7 @@ function AddProduct() {
             });
 
             const res = await axios.post(
-                "http://localhost:5000/api/products",
+                "https://ecommerce-product-yww7.onrender.com/api/products",
                 formData,
                 {
                     headers: {
@@ -100,7 +100,7 @@ function AddProduct() {
 
             console.log(res.data);
             setMessage("Product added successfully!", "success");
-            
+
             // Reset form
             setName("");
             setPrice("");
@@ -111,13 +111,13 @@ function AddProduct() {
             setDiscount("");
             setBrand("");
             setImages([]);
-            
+
             // Reset file input
             const fileInput = document.getElementById('image-input');
             if (fileInput) fileInput.value = '';
 
             setLoading(false);
-            
+
             // Scroll to top
             window.scrollTo(0, 0);
         }
@@ -174,7 +174,7 @@ function AddProduct() {
                     {/* Left Column - Basic Info */}
                     <div className="form-section">
                         <h2>Basic Information</h2>
-                        
+
                         <div className="form-group">
                             <label htmlFor="name">
                                 Product Name <span className="required">*</span>
@@ -308,7 +308,7 @@ function AddProduct() {
                     {/* Right Column - Images */}
                     <div className="form-section">
                         <h2>Product Images</h2>
-                        
+
                         <div className="image-upload-area">
                             <label htmlFor="image-input" className="image-upload-label">
                                 <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -395,7 +395,7 @@ function AddProduct() {
                     >
                         Clear Form
                     </button>
-                    
+
                     <button
                         type="submit"
                         className="btn btn-primary"

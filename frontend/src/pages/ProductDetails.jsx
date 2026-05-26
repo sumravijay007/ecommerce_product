@@ -24,7 +24,7 @@ function ProductDetails() {
     useEffect(() => {
         setLoading(true);
         axios
-            .get(`http://localhost:5000/api/products/${id}`)
+            .get(`https://ecommerce-product-yww7.onrender.com/api/products/${id}`)
             .then((res) => {
                 setProduct(res.data);
                 if (res.data.images && res.data.images.length > 0) {
@@ -106,7 +106,7 @@ function ProductDetails() {
                 <div className="product-gallery">
                     <div className="main-image-container">
                         <img
-                            src={`http://localhost:5000/${mainImage}`}
+                            src={`https://ecommerce-product-yww7.onrender.com/${mainImage}`}
                             alt={product.name}
                             className="main-product-image"
                         />
@@ -124,7 +124,7 @@ function ProductDetails() {
                                     onClick={() => setMainImage(img)}
                                 >
                                     <img
-                                        src={`http://localhost:5000/${img}`}
+                                        src={`https://ecommerce-product-yww7.onrender.com/${img}`}
                                         alt={`${product.name} view ${index + 1}`}
                                     />
                                 </div>
@@ -323,7 +323,7 @@ function ProductDetails() {
             </div>
 
             {/* ================= RELATED PRODUCTS (Optional) ================= */}
-          
+
         </div>
     );
 }
