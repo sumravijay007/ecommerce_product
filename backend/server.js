@@ -18,6 +18,10 @@ app.use("/api/products", require("./routes/productRoutes"));
 app.use("/api/users", require("./routes/userRoutes"));
 app.use("/api/cart", require("./routes/cartRoutes"));
 app.use("/uploads", express.static("uploads"));
+app.get("/", (req, res) => {
+    res.send("API is running...");
+}
+);
 app.listen(5000, () => {
     console.log("Server Running");
 });
