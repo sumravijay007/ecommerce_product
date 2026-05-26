@@ -1,0 +1,88 @@
+/* ================= NAVBAR CONTAINER ================= */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    height: 70px;
+    background-color: #fff;
+    /* White like Amazon */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    font-family: 'Inter', sans-serif;
+}
+
+/* ================= LOGO ================= */
+.navbar .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ff9900;
+    /* Amazon orange */
+    cursor: pointer;
+    text-decoration: none;
+}
+
+/* ================= NAV LINKS ================= */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.8rem;
+    /* Space between links */
+}
+
+/* ================= LINK STYLING ================= */
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    /* Dark grey */
+    font-weight: 500;
+    font-size: 1rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ff9900;
+    /* Hover color like Amazon */
+}
+
+/* ================= BADGE COUNT ================= */
+.nav-links a::after {
+    content: attr(data-count);
+    display: none;
+    /* We'll enable only for cart/wishlist if needed */
+    position: absolute;
+    top: -8px;
+    right: -12px;
+    background-color: #ff3b30;
+    /* Red badge */
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 50%;
+}
+
+/* Directly styling numbers in JSX */
+.nav-links a span {
+    font-weight: 700;
+    margin-left: 4px;
+    color: #ff9900;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    .nav-links {
+        gap: 1rem;
+    }
+
+    .navbar {
+        padding: 0 1rem;
+    }
+
+    .navbar .logo {
+        font-size: 1.5rem;
+    }
+}
