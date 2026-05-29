@@ -106,7 +106,7 @@ function ProductDetails() {
                 <div className="product-gallery">
                     <div className="main-image-container">
                         <img
-                            src={`https://ecommerce-product-yww7.onrender.com/${mainImage}`}
+                            src={`${mainImage}`}
                             alt={product.name}
                             className="main-product-image"
                         />
@@ -124,7 +124,7 @@ function ProductDetails() {
                                     onClick={() => setMainImage(img)}
                                 >
                                     <img
-                                        src={`https://ecommerce-product-yww7.onrender.com/${img}`}
+                                        src={`${img}`}
                                         alt={`${product.name} view ${index + 1}`}
                                     />
                                 </div>

@@ -90,12 +90,7 @@ function AddProduct() {
 
             const res = await axios.post(
                 "https://ecommerce-product-yww7.onrender.com/api/products",
-                formData,
-                {
-                    headers: {
-                        "Content-Type": "multipart/form-data"
-                    }
-                }
+                formData
             );
 
             console.log(res.data);
