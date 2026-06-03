@@ -58,7 +58,7 @@ function Wishlist() {
                                 <Link to={`/product/${item._id}`} className="product-link">
                                     <div className="product-image-wrapper">
                                         <img
-                                            src={`https://ecommerce-product-yww7.onrender.com/${item.images[0]}`}
+                                            src={`${item.images[0]}`}
                                             alt={item.name}
                                             className="product-image"
                                         />
