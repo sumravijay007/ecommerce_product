@@ -81,7 +81,7 @@ function Cart() {
                         <div className="cart-item" key={item._id}>
                             <div className="cart-item-image">
                                 <img
-                                    src={item.images?.[0] ? `https://ecommerce-product-yww7.onrender.com/${item.images[0]}` : '/placeholder.png'}
+                                    src={item.images?.[0] ? `${item.images[0]}` : '/placeholder.png'}
                                     alt={item.name}
                                 />
                             </div>
